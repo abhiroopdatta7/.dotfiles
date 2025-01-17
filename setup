@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# Configuration Manager -A7d
+
+install_common_apps() {
+    echo "Installing dependencies"
+    apt-get -qq install -y curl \
+                            sed \
+                            fzf \
+                            bat \
+                            eza \
+                            fdfind \
+                            htop \
+                            btop \
+                            tldr
+
+    curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+    
+}
+
+source ./scripts/checkbox.sh --message="A7d" --options="bash|zsh|git|nvim|tmux" --multiple
+clear
+
+if [[ ${#checkbox_output[@]} -gt 0 ]]; then
+    echo "Updating sources"
+    apt-get -qq update
+    echo "Installing stow"
+    apt-get -qq install -y stow
+    for option in "${checkbox_output[@]}"; do
+        case "$option" in
+            "bash")
+                install_common_apps
+                echo "Configuring bash"
+                stow fzf
+                stow bash ;;
+
+            "zsh")
+                echo "Installing zsh"
+                apt-get -qq install -y zsh
+                install_common_apps
+                echo "Configuring zsh"
+                stow fzf
+                stow zsh ;;
+
+            "git")
+                echo "Installing git"
+                apt-get -qq install -y git
+                echo "Configuring git"
+                stow git ;;
+            
+            "nvim")
+                echo "Installing neo vim"
+                apt-get -qq install -y nvim
+                echo "Configuring neo vim"
+                stow nvim ;;
+
+            "tmux")
+                echo "Installing tmux"
+                apt-get -qq install -y tmux
+                echo "Configuring tmux"
+                stow tmux ;;
+
+        esac
+    done
+else
+        printf "Thank you\n"
+    fi
