@@ -11,13 +11,21 @@ install_common_apps() {
                             fdfind \
                             htop \
                             btop \
-                            tldr
-
-    curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+                            tldr \
+                            tar \
+                            zip \
+                            unzip \
+                            7zip
     
 }
 
-source ./scripts/checkbox.sh --message="A7d" --options="bash|zsh|git|nvim|tmux" --multiple
+# main
+if [ $(id -u) -ne 0 ]
+  then echo Please run this script as root or using sudo!
+  exit
+fi
+
+source ./scripts/checkbox.sh --message="A7d" --options="zsh|tmux|git|nvim" --multiple
 clear
 
 if [[ ${#checkbox_output[@]} -gt 0 ]]; then
@@ -27,12 +35,6 @@ if [[ ${#checkbox_output[@]} -gt 0 ]]; then
     apt-get -qq install -y stow
     for option in "${checkbox_output[@]}"; do
         case "$option" in
-            "bash")
-                install_common_apps
-                echo "Configuring bash"
-                stow fzf
-                stow bash ;;
-
             "zsh")
                 echo "Installing zsh"
                 apt-get -qq install -y zsh

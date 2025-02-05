@@ -1,0 +1,2 @@
+#.zprofile - A7d
+
