@@ -40,8 +40,8 @@ if [[ ${#checkbox_output[@]} -gt 0 ]]; then
                 apt-get -qq install -y zsh
                 install_common_apps
                 echo "Configuring zsh"
-                stow fzf
-                stow zsh ;;
+                stow zsh 
+                # stow .config --target ../.config;;
 
             "git")
                 echo "Installing git"
