@@ -8,14 +8,12 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light chrissicool/zsh-256color
 
 # Starship
-export STARSHIP_CONFIG=~/.starship.toml
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
 # Atuin
-export ATUIN_CONFIG_DIR=~/.atuin
 zinit ice as"command" from"gh-r" bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
     atclone"./atuin init zsh > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
     atpull"%atclone" src"init.zsh"

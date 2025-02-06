@@ -21,8 +21,12 @@ install_common_apps() {
 }
 
 # main
+
+USER_NAME = $SUDO_USER
+HOME_DIR=$(eval echo ~$USER_NAME)
+
 if [ $(id -u) -ne 0 ]
-  then echo Please run this script as root or using sudo!
+  then echo "Please run this script using sudo!"
   exit
 fi
 
@@ -30,33 +34,29 @@ source ./scripts/checkbox.sh --message="A7d" --options="zsh|tmux|nvim" --multipl
 clear
 
 if [[ ${#checkbox_output[@]} -gt 0 ]]; then
-    echo "Updating sources"
-    apt-get -qq update
-    echo "Installing stow"
-    apt-get -qq install -y stow
+
+    echo "Preparing..."
+    apt-get -qq update && apt-get -qq install -y stow
+
     for option in "${checkbox_output[@]}"; do
+        
+        echo "Installing & configuring $option"
+        stow $option
+
         case "$option" in
             "zsh")
-                echo "Installing zsh"
                 apt-get -qq install -y zsh
                 install_common_apps
-                echo "Configuring zsh"
-                stow zsh ;;
+                chsh -s $(which zsh) $USER_NAME ;;
 
             "nvim")
-                echo "Installing neo vim"
-                apt-get -qq install -y nvim
-                echo "Configuring neo vim"
-                stow nvim ;;
+                apt-get -qq install -y nvim ;;
 
             "tmux")
-                echo "Installing tmux"
-                apt-get -qq install -y tmux
-                echo "Configuring tmux"
-                stow tmux ;;
+                apt-get -qq install -y tmux ;;
 
         esac
     done
 else
-        printf "Thank you\n"
+        printf "Thank you $USER_NAME\n"
     fi

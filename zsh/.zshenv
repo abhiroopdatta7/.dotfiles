@@ -1,13 +1,21 @@
 #.zenv - A7d
 
 export PATH=${PATH}:/usr/local/go/bin:${HOME}/go/bin
-export FZF_DEFAULT_OPTS_FILE=${HOME}/.fzfrc
 export GOPATH='/Users/omerxx/go'
+
+# Shell plugins
+export FZF_DEFAULT_OPTS_FILE=${HOME}/.fzfrc
+export STARSHIP_CONFIG=~/.starship.toml
+export ATUIN_CONFIG_DIR=~/.atuin
+## 
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
+# bindkey '^ ' autosuggest-accept
 
 # Aliases
 alias cat='bat'
 alias top='htop'
-alias fd='fdfind'
+alias fd='fd-find'
 alias lsa='eza -lTag --icons'
 alias df='df -h'
 
