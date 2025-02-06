@@ -3,8 +3,7 @@
 ## Setup
 
 ```bash
-cd .dotfiles
-sudo ./setup
+sudo sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfiles/refs/heads/main/download)"
 ```
 
 ## Note
