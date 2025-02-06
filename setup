@@ -8,14 +8,15 @@ install_common_apps() {
                             fzf \
                             bat \
                             eza \
-                            fdfind \
+                            fd-find \
                             htop \
                             btop \
                             tldr \
                             tar \
                             zip \
                             unzip \
-                            7zip
+                            7zip \
+                            git
     
 }
 
@@ -25,7 +26,7 @@ if [ $(id -u) -ne 0 ]
   exit
 fi
 
-source ./scripts/checkbox.sh --message="A7d" --options="zsh|tmux|git|nvim" --multiple
+source ./scripts/checkbox.sh --message="A7d" --options="zsh|tmux|nvim" --multiple
 clear
 
 if [[ ${#checkbox_output[@]} -gt 0 ]]; then
@@ -40,15 +41,8 @@ if [[ ${#checkbox_output[@]} -gt 0 ]]; then
                 apt-get -qq install -y zsh
                 install_common_apps
                 echo "Configuring zsh"
-                stow zsh 
-                # stow .config --target ../.config;;
+                stow zsh ;;
 
-            "git")
-                echo "Installing git"
-                apt-get -qq install -y git
-                echo "Configuring git"
-                stow git ;;
-            
             "nvim")
                 echo "Installing neo vim"
                 apt-get -qq install -y nvim

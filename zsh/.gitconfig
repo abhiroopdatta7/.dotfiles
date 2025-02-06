@@ -1,0 +1,9 @@
+[user]
+	email = abhiroop.datta@keysight.com
+	name = Abhiroop Datta
+[core]
+	editor = code
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
