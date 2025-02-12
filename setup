@@ -1,29 +1,8 @@
 #!/usr/bin/env bash
 # Configuration Manager -A7d
 
-install_common_apps() {
-    echo "Installing dependencies"
-    apt-get -qq install -y curl \
-                            sed \
-                            fzf \
-                            bat \
-                            eza \
-                            fd-find \
-                            htop \
-                            btop \
-                            tldr \
-                            tar \
-                            zip \
-                            unzip \
-                            7zip \
-                            git
-    
-}
-
-# main
-
-USER_NAME = $SUDO_USER
-HOME_DIR=$(eval echo ~$USER_NAME)
+USER_NAME = ${SUDO_USER}
+HOME_DIR=$(eval echo ~${USER_NAME})
 
 if [ $(id -u) -ne 0 ]
   then echo "Please run this script using sudo!"
@@ -40,23 +19,10 @@ if [[ ${#checkbox_output[@]} -gt 0 ]]; then
 
     for option in "${checkbox_output[@]}"; do
         
-        echo "Installing & configuring $option"
-        stow $option
-
-        case "$option" in
-            "zsh")
-                apt-get -qq install -y zsh
-                install_common_apps
-                chsh -s $(which zsh) $USER_NAME ;;
-
-            "nvim")
-                apt-get -qq install -y nvim ;;
-
-            "tmux")
-                apt-get -qq install -y tmux ;;
-
-        esac
+        echo "Installing & Configuring ${option}"
+        stow ${option} --ignore='' --target=${HOME_DIR}
+        ./${option}/install.debian
     done
 else
-        printf "Thank you $USER_NAME\n"
+        printf "Thank you ${USER_NAME}\n"
     fi

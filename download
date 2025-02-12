@@ -2,11 +2,12 @@
 
 USER_NAME=$SUDO_USER
 HOME_DIR=$(eval echo ~$USER_NAME)
+CWD=${pwd}
 
-INSTALL_PATH=$HOME_DIR/scrach/.dotfiles
+INSTALL_PATH=${CWD}/.dotfiles
 
 # download from wget
 wget -O /tmp/dotConfig.zip https://github.com/abhiroopdatta7/.dotfiles/archive/refs/heads/main.zip
-unzip -o /tmp/dotConfig.zip -d /tmp && mv /tmp/.dotfiles-main $INSTALL_PATH
+unzip -o /tmp/dotConfig.zip -d /tmp && mv /tmp/.dotfiles-main ${INSTALL_PATH}
 
-$INSTALL_PATH/setup
+${INSTALL_PATH}/setup
