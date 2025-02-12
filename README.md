@@ -8,5 +8,5 @@ sudo sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfil
 
 ## Note
 
-[dotfiles](https://dotfiles.github.io/tutorials/)
-[highlight](https://gitlab.com/saalen/highlight)
+- [dotfiles](https://dotfiles.github.io/tutorials/)
+- [highlight](https://gitlab.com/saalen/highlight)
