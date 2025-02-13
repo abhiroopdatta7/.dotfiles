@@ -24,7 +24,7 @@ if [[ ${#checkbox_output[@]} -gt 0 ]]; then
         source ./$option/install.$os_type
     done
 
-    printf "Congratulations $SUDO_USER! configuration is stored at $HOME_DIR/.dotfiles\n"
+    printf "Congratulations $SUDO_USER! configurations are stored at $HOME_DIR/.dotfiles\n"
 else
     printf "Thank you $SUDO_USER\n"
 fi
