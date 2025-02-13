@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-apt-get -qq install -y tmux
+apt-get -qq update \
+&& apt-get -qq install -y tmux

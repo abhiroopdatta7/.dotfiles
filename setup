@@ -1,28 +1,30 @@
 #!/usr/bin/env bash
 # Configuration Manager -A7d
 
-USER_NAME = ${SUDO_USER}
-HOME_DIR=$(eval echo ~${USER_NAME})
-
 if [ $(id -u) -ne 0 ]
-  then echo "Please run this script using sudo!"
+  then printf "Please run this script using sudo!\n"
   exit
 fi
+
+HOME_DIR=$(eval echo ~$SUDO_USER)
 
 source ./scripts/checkbox.sh --message="A7d" --options="zsh|tmux|nvim" --multiple
 clear
 
 if [[ ${#checkbox_output[@]} -gt 0 ]]; then
 
-    echo "Preparing..."
+    printf "Preparing...\n"
     apt-get -qq update && apt-get -qq install -y stow
 
     for option in "${checkbox_output[@]}"; do
         
-        echo "Installing & Configuring ${option}"
-        stow ${option} --ignore='' --target=${HOME_DIR}
-        ./${option}/install.debian
+        printf "Installing & Configuring $option\n"
+        stow --ignore='install.debian' --target=$HOME_DIR $option
+        source ./$option/install.debian
     done
+
+    printf "Configuration is stored at $HOME_DIR/.dotfiles for $SUDO_USER\n"
 else
-        printf "Thank you ${USER_NAME}\n"
-    fi
+    printf "Thank you $SUDO_USER\n"
+fi
+
