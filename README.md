@@ -8,5 +8,6 @@ sudo sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfil
 
 ## Note
 
+- [Nerd Font](https://www.nerdfonts.com/font-downloads)
 - [dotfiles](https://dotfiles.github.io/tutorials/)
 - [highlight](https://gitlab.com/saalen/highlight)
