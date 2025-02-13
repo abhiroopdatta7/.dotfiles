@@ -16,8 +16,12 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=true
 alias cat='bat'
 alias top='htop'
 alias fd='fd-find'
-alias lsa='eza -lTag --icons'
 alias df='df -h'
+
+## eza
+alias l=' eza --oneline --icons --group-directories-first'
+alias ll='eza -l -a --icons --group-directories-first'
+alias tree='eza --tree --icons'
 
 # Functions
 
