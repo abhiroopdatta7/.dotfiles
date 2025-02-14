@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-apt-get -qq update \
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm \
+&& apt-get -qq update \
 && apt-get -qq install -y tmux
