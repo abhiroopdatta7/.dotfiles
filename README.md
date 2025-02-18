@@ -3,7 +3,7 @@
 ## Setup
 
 ```bash
-sudo sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfiles/refs/heads/main/download)"
+sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfiles/refs/heads/main/download)"
 ```
 
 ## Note

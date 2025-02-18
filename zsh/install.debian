@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-apt-get -qq update \
-&& apt-get -qq install -y curl \
+sudo apt-get -qq update \
+&& sudo apt-get -qq install -y curl \
                         sed \
                         fzf \
                         bat \
@@ -16,4 +16,4 @@ apt-get -qq update \
                         7zip \
                         git \
                         zsh \
-&& chsh -s $(which zsh) $SUDO_USER
+&& sudo chsh -s $(which zsh) $SUDO_USER
