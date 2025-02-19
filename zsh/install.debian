@@ -16,4 +16,4 @@ sudo apt-get -qq update \
                         7zip \
                         git \
                         zsh \
-&& sudo chsh -s $(which zsh) $SUDO_USER
+&& sudo chsh -s $(which zsh) $USER
