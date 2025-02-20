@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -e
+
 # Configuration Manager -A7d
 
 # if [ $(id -u) -ne 0 ]
