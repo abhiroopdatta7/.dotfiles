@@ -17,6 +17,7 @@ alias cat='bat'
 alias top='htop'
 alias fd='fd-find'
 alias df='df -h'
+alias ls='lsd'
 
 ## eza
 alias l=' eza --oneline --icons --group-directories-first'

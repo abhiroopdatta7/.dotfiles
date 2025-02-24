@@ -1,11 +1,6 @@
 #!/bin/bash
 set -ex
 
-# if [ $(id -u) -ne 0 ]
-#   then printf "Please run this script using sudo!\n"
-#   exit
-# fi
-
 # HOME_DIR=$(eval echo ~$SUDO_USER)
 HOME_DIR=$(eval echo ~$USER)
 
