@@ -24,6 +24,9 @@ alias l=' eza --oneline --icons --group-directories-first'
 alias ll='eza -l -a --icons --group-directories-first'
 alias tree='eza --tree --icons'
 
+# 
+typeset -A SECRETS=()
+
 # Functions
 
 ## change dir with fzf
@@ -68,3 +71,81 @@ function extract {
     fi
   fi
 }
+
+## secrets
+function _lock {
+  local secret_dir=$(eval echo ~$USER)/.dotfiles/secrets
+  typeset -x PASS=""
+  echo -n "Enter a Password: "
+  read -s PASS
+  echo ""
+  ccencrypt -E PASS $secret_dir/*
+  unset PASS
+}
+
+function _unlock {
+  local secret_dir=$(eval echo ~$USER)/.dotfiles/secrets
+  typeset -x PASS=""
+  echo -n "Enter a Password: "
+  read -s PASS
+  echo ""
+  ccdecrypt -E PASS $secret_dir/*
+  unset PASS
+}
+
+function _ls {
+  for key in "${(@k)SECRETS}"; do
+    echo "SECRETS[$key]"
+  done
+}
+
+function _lsa {
+  for key in "${(@k)SECRETS}"; do
+    echo "SECRETS[$key]=$SECRETS[$key]"
+  done
+}
+
+function _load {
+  local secret_dir=$(eval echo ~$USER)/.dotfiles/secrets
+  typeset -x PASS=""
+  echo -n "Enter a Password: "
+  read -s PASS
+  echo ""
+  ccdecrypt -E PASS $secret_dir/*
+  for file in $secret_dir/*; do
+    if [ -f "$file" ]; then
+      source "$file"
+    fi
+  done
+  ccencrypt -E PASS $secret_dir/*
+  unset PASS
+}
+
+function _unload {
+  for key in "${(@k)SECRETS}"; do
+    unset $SECRETS[$key]
+  done
+}
+
+# _add() {
+#   local secret_dir=$(eval echo ~$USER)/.dotfiles/secrets
+#   local key=$1
+#   local val=$2
+#   echo "Adding secret $key: $val"
+#   typeset -x PASS=""
+#   echo -n "Enter a Password: "
+#   read -s PASS
+#   echo ""
+#   ccdecrypt -E PASS $secret_dir/*
+#   # add
+#   touch $secret_dir/local
+#   echo "SECRETS[$key]=$val" >> $secret_dir/local
+#   # source
+#   for file in $secret_dir/*; do
+#     if [ -f "$file" ]; then
+#       source "$file"
+#     fi
+#   done
+#   ccencrypt -E PASS $secret_dir/*
+#   unset PASS
+# }

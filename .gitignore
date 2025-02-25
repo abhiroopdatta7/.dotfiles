@@ -1,0 +1,4 @@
+secrets/*
+!secrets/*.cpt
+
+tmp/*

@@ -16,4 +16,5 @@ sudo apt-get -qq update \
                         7zip \
                         git \
                         zsh \
+                        ccrypt \
 && sudo chsh -s $(which zsh) $USER
