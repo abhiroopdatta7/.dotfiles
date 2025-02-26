@@ -73,79 +73,77 @@ function extract {
 }
 
 ## secrets
-function _lock {
+function secrets {
   local secret_dir=$(eval echo ~$USER)/.dotfiles/secrets
   typeset -x PASS=""
-  echo -n "Enter a Password: "
-  read -s PASS
-  echo ""
-  ccencrypt -E PASS $secret_dir/*
+  case $1 in
+    "ls")
+      for key in "${(@k)SECRETS}"; do
+        echo "SECRETS[$key]"
+      done
+    ;;
+
+    "show")
+      for key in "${(@k)SECRETS}"; do
+        echo "SECRETS[$key]=$SECRETS[$key]"
+      done
+    ;;
+
+    "load")
+      echo -n "Enter a Password: "
+      read -s PASS
+      echo ""
+      ccdecrypt -E PASS $secret_dir/*
+      for file in $secret_dir/*; do
+        if [ -f "$file" ]; then
+          source "$file"
+        fi
+      done
+      ccencrypt -E PASS $secret_dir/*
+      echo "secrets loaded, check with 'secrets ls'"
+    ;;
+    
+    "unload")
+      for key in "${(@k)SECRETS}"; do
+        unset $SECRETS[$key]
+      done
+      echo "secrets unloaded."
+    ;;
+
+    "add")
+      local key=$2
+      echo -n "Enter value: "
+      read -s val
+      echo ""
+      echo "Adding secret $key: $val"
+      echo -n "Enter a Password: "
+      read -s PASS
+      echo ""
+      ccdecrypt -E PASS $secret_dir/*
+      touch $secret_dir/local
+      echo "SECRETS[$key]=$val" >> $secret_dir/local
+      # load
+      for file in $secret_dir/*; do
+        if [ -f "$file" ]; then
+          source "$file"
+        fi
+      done
+      ccencrypt -E PASS $secret_dir/*
+    ;;
+
+    # "delete")
+    #   local key=$2
+    #   echo "Adding secret $key: $val"
+    #   echo -n "Enter a Password: "
+    #   read -s PASS
+    #   echo ""
+    #   ccdecrypt -E PASS $secret_dir/*
+
+    #   while read line; do
+    #     echo "$line" >> $secret_dir/tmp
+    #   done <$secret_dir/local
+    # ;;
+
+  esac
   unset PASS
 }
-
-function _unlock {
-  local secret_dir=$(eval echo ~$USER)/.dotfiles/secrets
-  typeset -x PASS=""
-  echo -n "Enter a Password: "
-  read -s PASS
-  echo ""
-  ccdecrypt -E PASS $secret_dir/*
-  unset PASS
-}
-
-function _ls {
-  for key in "${(@k)SECRETS}"; do
-    echo "SECRETS[$key]"
-  done
-}
-
-function _lsa {
-  for key in "${(@k)SECRETS}"; do
-    echo "SECRETS[$key]=$SECRETS[$key]"
-  done
-}
-
-function _load {
-  local secret_dir=$(eval echo ~$USER)/.dotfiles/secrets
-  typeset -x PASS=""
-  echo -n "Enter a Password: "
-  read -s PASS
-  echo ""
-  ccdecrypt -E PASS $secret_dir/*
-  for file in $secret_dir/*; do
-    if [ -f "$file" ]; then
-      source "$file"
-    fi
-  done
-  ccencrypt -E PASS $secret_dir/*
-  unset PASS
-}
-
-function _unload {
-  for key in "${(@k)SECRETS}"; do
-    unset $SECRETS[$key]
-  done
-}
-
-# _add() {
-#   local secret_dir=$(eval echo ~$USER)/.dotfiles/secrets
-#   local key=$1
-#   local val=$2
-#   echo "Adding secret $key: $val"
-#   typeset -x PASS=""
-#   echo -n "Enter a Password: "
-#   read -s PASS
-#   echo ""
-#   ccdecrypt -E PASS $secret_dir/*
-#   # add
-#   touch $secret_dir/local
-#   echo "SECRETS[$key]=$val" >> $secret_dir/local
-#   # source
-#   for file in $secret_dir/*; do
-#     if [ -f "$file" ]; then
-#       source "$file"
-#     fi
-#   done
-#   ccencrypt -E PASS $secret_dir/*
-#   unset PASS
-# }
