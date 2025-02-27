@@ -21,6 +21,13 @@ bindkey              '^I' menu-select
 bindkey "$terminfo[kcbt]" menu-select
 bindkey -M menuselect              '^I'         menu-complete
 bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
+bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
+zstyle ':autocomplete:*complete*:*' insert-unambiguous yes # all Tab widgets
+zstyle ':autocomplete:*history*:*' insert-unambiguous yes # all history widgets
+zstyle ':autocomplete:menu-search:*' insert-unambiguous yes # ^S
+zstyle ':autocomplete:*' add-space \
+    executables aliases functions builtins reserved-words commands
 
 # Atuin
 zinit ice as"command" from"gh-r" bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
