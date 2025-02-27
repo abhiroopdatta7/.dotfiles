@@ -24,5 +24,5 @@ sudo apt-get -qq update \
 && sudo mv -f /usr/bin/batcat /usr/bin/cat \
 && wget -nv -O /tmp/yazi.zip https://github.com/sxyazi/yazi/releases/download/${YAZI_VER}/yazi-x86_64-unknown-linux-gnu.zip \
 && unzip /tmp/yazi.zip -d /tmp/ \
-&& sudo mv /tmp/yazi-x86_64-unknown-linux-gnu/yazi /usr/bin/ \
-&& sudo mv /tmp/yazi-x86_64-unknown-linux-gnu/ya /usr/bin/
+&& sudo mv -f /tmp/yazi-x86_64-unknown-linux-gnu/yazi /usr/bin/ \
+&& sudo mv -f /tmp/yazi-x86_64-unknown-linux-gnu/ya /usr/bin/
