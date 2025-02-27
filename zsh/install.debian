@@ -23,10 +23,10 @@ sudo apt-get -qq update \
 && sudo chsh -s $(which zsh) $USER \
 && sudo mv -f /usr/bin/batcat /usr/bin/cat \
 && wget -nv -O /tmp/yazi.zip https://github.com/sxyazi/yazi/releases/download/${YAZI_VER}/yazi-x86_64-unknown-linux-gnu.zip \
-&& unzip /tmp/yazi.zip -d /tmp/ \
-&& sudo mv -f /tmp/yazi-x86_64-unknown-linux-gnu/yazi /usr/bin/ \
-&& sudo mv -f /tmp/yazi-x86_64-unknown-linux-gnu/ya /usr/bin/ \
+&& unzip -o /tmp/yazi.zip -d /tmp/ \
+&& sudo install /tmp/yazi-x86_64-unknown-linux-gnu/yazi -D -t  /usr/bin/ \
+&& sudo install /tmp/yazi-x86_64-unknown-linux-gnu/ya -D -t  /usr/bin/ \
 && LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*') \
-&& curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" \
-&& tar -xf lazygit.tar.gz lazygit \
+&& wget -nv -O /tmp/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" \
+&& tar -xf /tmp/lazygit.tar.gz -C /tmp lazygit \
 && sudo install lazygit -D -t /usr/bin/
