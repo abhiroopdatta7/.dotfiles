@@ -15,6 +15,7 @@ alias top='htop'
 alias fd='fd-find'
 alias df='df -h'
 alias ls='lsd'
+alias lgit='lazygit'
 
 ## eza
 alias l=' eza --oneline --icons --group-directories-first'
