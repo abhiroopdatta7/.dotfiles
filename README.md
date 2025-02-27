@@ -22,6 +22,5 @@ sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfiles/re
 
 ## Note
 
-- [Nerd Font](https://www.nerdfonts.com/font-downloads)
 - [dotfiles](https://dotfiles.github.io/tutorials/)
 - [highlight](https://gitlab.com/saalen/highlight)

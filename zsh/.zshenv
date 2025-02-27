@@ -8,9 +8,6 @@ export FZF_DEFAULT_OPTS_FILE=${HOME}/.fzfrc
 export STARSHIP_CONFIG=~/.starship.toml
 export ATUIN_CONFIG_DIR=~/.atuin
 ## 
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export ZSH_AUTOSUGGEST_USE_ASYNC=true
-# bindkey '^ ' autosuggest-accept
 
 # Aliases
 alias cat='bat'
@@ -24,8 +21,15 @@ alias l=' eza --oneline --icons --group-directories-first'
 alias ll='eza -l -a --icons --group-directories-first'
 alias tree='eza --tree --icons'
 
-# 
-typeset -A SECRETS=()
+# Aliases with file type
+alias -s py=code
+alias -s c=code
+alias -s h=code
+alias -s cpp=code
+alias -s hpp=code
+
+# Global alias
+# alias -g [custom-command-alias]="[command]"
 
 # Functions
 
@@ -72,7 +76,9 @@ function extract {
   fi
 }
 
-## secrets
+## secrets # 
+typeset -A SECRETS=()
+
 function secrets {
   local secret_dir=$(eval echo ~$USER)/.dotfiles/secrets
   typeset -x PASS=""
