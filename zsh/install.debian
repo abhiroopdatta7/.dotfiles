@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+YAZI_VER=v25.2.26
+
 sudo apt-get -qq update \
 && sudo apt-get -qq install -y curl \
                         sed \
@@ -19,4 +21,8 @@ sudo apt-get -qq update \
                         ccrypt \
                         lsd \
 && sudo chsh -s $(which zsh) $USER \
-&& sudo mv -f /usr/bin/batcat /usr/bin/cat
+&& sudo mv -f /usr/bin/batcat /usr/bin/cat \
+&& wget -nv -O /tmp/yazi.zip https://github.com/sxyazi/yazi/releases/download/${YAZI_VER}/yazi-x86_64-unknown-linux-gnu.zip \
+&& unzip /tmp/yazi.zip -d /tmp/ \
+&& sudo mv /tmp/yazi-x86_64-unknown-linux-gnu/yazi /usr/bin/ \
+&& sudo mv /tmp/yazi-x86_64-unknown-linux-gnu/ya /usr/bin/
