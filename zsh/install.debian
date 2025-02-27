@@ -17,4 +17,6 @@ sudo apt-get -qq update \
                         git \
                         zsh \
                         ccrypt \
-&& sudo chsh -s $(which zsh) $USER
+                        lsd \
+&& sudo chsh -s $(which zsh) $USER \
+&& sudo mv -f /usr/bin/batcat /usr/bin/cat
