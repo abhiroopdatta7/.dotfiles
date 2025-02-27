@@ -8,6 +8,10 @@ sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfiles/re
 
 ## .zshconfig
 
+### Plugin Manager
+
+- [zinit](https://github.com/zdharma-continuum/zinit)
+
 ### History Manager
 
 - [atuin](https://atuin.sh/)
@@ -19,6 +23,20 @@ sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfiles/re
 ### Font
 
 - [Nerd Font](https://www.nerdfonts.com/font-downloads)
+
+### File Manager
+
+- [Yazi](https://yazi-rs.github.io/)
+
+### 'ls' replacement
+
+- [lsd](https://github.com/lsd-rs/lsd)
+
+## .tmuxconfig
+
+### Tmux Plugin Manager
+
+- [tpm](https://github.com/tmux-plugins/tpm)
 
 ## Note
 
