@@ -24,6 +24,11 @@ sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfiles/re
 
 - [Nerd Font](https://www.nerdfonts.com/font-downloads)
 
+#### Some of our favourite fonts
+
+- [FantasqueSansMono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FantasqueSansMono.zip)
+- [JetBrainsMono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip)
+
 ### File Manager
 
 - [Yazi](https://yazi-rs.github.io/)
