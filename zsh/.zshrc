@@ -35,6 +35,9 @@ zinit ice as"command" from"gh-r" bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin"
     atpull"%atclone" src"init.zsh"
 zinit light atuinsh/atuin
 
+# zoxide
+export _ZO_ECHO=1
+eval "$(zoxide init --cmd cd --hook pwd zsh)"
 
 # zinit light zsh-users/zsh-autosuggestions
 # export ZSH_AUTOSUGGEST_STRATEGY=(history completion)

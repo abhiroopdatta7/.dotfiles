@@ -1,26 +1,28 @@
 #.zenv - A7d
 
-export PATH=${PATH}:/usr/local/go/bin:${HOME}/go/bin
+export PATH=${PATH}:${HOME}/.local/bin:/usr/local/go/bin:${HOME}/go/bin
 export GOPATH='/Users/omerxx/go'
 
 # Shell plugins
-export FZF_DEFAULT_OPTS_FILE=${HOME}/.fzfrc
-export STARSHIP_CONFIG=~/.starship.toml
-export ATUIN_CONFIG_DIR=~/.atuin
+export FZF_DEFAULT_OPTS_FILE=${HOME}/.config/fzfrc
+export STARSHIP_CONFIG=~/.config/starship.toml
+export ATUIN_CONFIG_DIR=~/.config/atuin.
 ## 
 
 # Aliases
 alias cat='bat'
 alias top='htop'
-alias fd='fd-find'
+alias fd='fdfind'
 alias df='df -h'
 alias ls='lsd'
 alias lgit='lazygit'
+alias y='yazi'
 
 ## eza
 alias l=' eza --oneline --icons --group-directories-first'
 alias ll='eza -l -a --icons --group-directories-first'
 alias tree='eza --tree --icons'
+
 
 # Aliases with file type
 alias -s py=code
