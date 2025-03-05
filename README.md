@@ -1,6 +1,9 @@
 # .dotConfigs
 
-## Setup
+[![GitHub Releases](https://img.shields.io/github/downloads/abhiroopdatta7/.dotfiles/total)](https://github.com/abhiroopdatta7/.dotfiles/releases)
+[![GitHub tag](https://img.shields.io/github/v/tag/abhiroopdatta7/.dotfiles.svg)](https://github.com/abhiroopdatta7/.dotfiles/tags)
+
+## Download
 
 ```bash
 sh -c "$(curl -sSL https://raw.githubusercontent.com/abhiroopdatta7/.dotfiles/refs/heads/main/download)"
