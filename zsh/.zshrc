@@ -36,7 +36,7 @@ zinit ice as"command" from"gh-r" bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin"
 zinit light atuinsh/atuin
 
 # zoxide
-export _ZO_ECHO=1
+export _ZO_ECHO=0
 eval "$(zoxide init --cmd cd --hook pwd zsh)"
 
 # zinit light zsh-users/zsh-autosuggestions
