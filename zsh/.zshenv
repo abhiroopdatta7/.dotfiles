@@ -4,7 +4,6 @@ export PATH=${PATH}:${HOME}/.local/bin:/usr/local/go/bin:${HOME}/go/bin
 export GOPATH='/Users/omerxx/go'
 
 # Shell plugins
-export FZF_DEFAULT_OPTS_FILE=${HOME}/.config/fzfrc
 export STARSHIP_CONFIG=~/.config/starship.toml
 export ATUIN_CONFIG_DIR=~/.config/atuin.
 ## 
@@ -21,8 +20,6 @@ alias y='yazi'
 ## eza
 alias l=' eza --oneline --icons --group-directories-first'
 alias ll='eza -l -a --icons --group-directories-first'
-alias tree='eza --tree --icons'
-
 
 # Aliases with file type
 alias -s py=code

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 YAZI_VER=v25.2.26
+FZF_VER=0.60.3
 
 sudo apt-get -qq update \
 && sudo apt-get -qq install -y curl \
                         sed \
-                        fzf \
                         bat \
                         eza \
                         fd-find \
@@ -22,6 +22,9 @@ sudo apt-get -qq update \
                         lsd \
                         ripgrep \
 && sudo chsh -s $(which zsh) $USER \
+&& wget -nv -O /tmp/fzf.tar.gz https://github.com/junegunn/fzf/releases/download/v${FZF_VER}/fzf-${FZF_VER}-linux_amd64.tar.gz \
+&& tar -xf /tmp/fzf.tar.gz -C /tmp fzf \
+&& sudo install /tmp/fzf -D -t /usr/bin/ \
 && sudo ln -s /usr/bin/batcat /usr/bin/bat 2>/dev/null \
 && wget -nv -O /tmp/yazi.zip https://github.com/sxyazi/yazi/releases/download/${YAZI_VER}/yazi-x86_64-unknown-linux-gnu.zip \
 && unzip -o /tmp/yazi.zip -d /tmp/ \
