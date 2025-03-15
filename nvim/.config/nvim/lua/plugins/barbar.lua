@@ -52,7 +52,8 @@ return {
         --                 :BufferGotoUnpinned
 
         -- Close buffer
-        { "<A-w>",     "<Cmd>BufferClose<CR>",               silent = true, desc = "Close" },
+        { "<C-w>",     "<Cmd>BufferClose<CR>",               silent = true, desc = "Close" },
+        { "<leader>fw",     "<Cmd>BufferClose<CR>",          silent = true, desc = "Close file" },
 
         -- Wipeout buffer
         --                 :BufferWipeout
