@@ -4,20 +4,20 @@ YAZI_VER=v25.2.26
 FZF_VER=0.60.3
 
 sudo apt-get -qq update \
-&& sudo apt-get -qq install -y curl \
-                        sed \
-                        eza \
-                        fd-find \
-                        htop \
-                        btop \
-                        tldr \
-                        tar \
-                        zip \
-                        unzip \
-                        7zip \
-                        git \
-                        zsh \
-                        ccrypt \
-                        ripgrep \
+&& sudo apt-get -qq install -y  curl \
+                                sed \
+                                eza \
+                                fd-find \
+                                htop \
+                                btop \
+                                tldr \
+                                tar \
+                                zip \
+                                unzip \
+                                7zip \
+                                git \
+                                zsh \
+                                ccrypt \
+                                ripgrep \
 && sudo chsh -s $(which zsh) $USER \
 && source install.linux.x86_64
