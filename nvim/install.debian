@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt-get -qq update \
-&& sudo apt-get -qq install -y neovim
+&& sudo apt-get -qq install -y  neovim \
+                                python3 \
+                                luarocks \
+                                nodejs

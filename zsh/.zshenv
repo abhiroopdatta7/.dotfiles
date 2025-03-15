@@ -16,6 +16,7 @@ alias df='df -h'
 alias ls='lsd'
 alias lgit='lazygit'
 alias y='yazi'
+alias vi='nvim'
 
 ## eza
 alias l=' eza --oneline --icons --group-directories-first'

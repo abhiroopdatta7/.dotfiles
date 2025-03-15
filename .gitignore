@@ -1,4 +1,12 @@
+# do not upload secrets other that *.cpt
 secrets/*
 !secrets/*.cpt
 
+# Do not upload from tmp
 tmp/*
+
+# Do not upload tmux plugins
+tmux/.config/tmux/plugins/
+
+# Do not store nvim tmp files
+nvim/.config/nvim/*json

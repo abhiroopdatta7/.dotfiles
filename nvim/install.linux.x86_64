@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+NODEJS_VERSION=22.14.0
+
+function nodejs() {
+    wget -nv -O /tmp/node.tar.gz https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz \
+    && tar -xf /tmp/node.tar.gz -C /tmp
+}
+
+nodejs
