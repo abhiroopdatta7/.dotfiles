@@ -1,5 +1,5 @@
 return {
-    "folke/which-key.nvim",
+    'folke/which-key.nvim',
     lazy=false,
     opts = {
       -- your configuration comes here
@@ -7,7 +7,7 @@ return {
       -- refer to the configuration section below
     },
     keys = {
-      -- { "<leader>l", "<cmd>Lazy<cr>", desc = "Lazy" },
-      { "<leader>q", "<cmd>q<cr>", desc = "Quit" },
+      -- { '<leader>l', '<cmd>Lazy<cr>', desc = 'Lazy' },
+      { '<leader>q', '<cmd>q<cr>', desc = 'Quit' },
     },
 }
