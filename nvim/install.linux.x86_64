@@ -3,8 +3,12 @@
 NODEJS_VERSION=22.14.0
 
 function nodejs() {
-    wget -nv -O /tmp/node.tar.gz https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz \
-    && tar -xf /tmp/node.tar.gz -C /tmp
+    echo "Installing node.js-${NODEJS_VER}" \
+    && wget -nv -O /tmp/nodejs.tar.xz https://nodejs.org/dist/v${NODEJS_VER}/node-v${NODEJS_VER}-linux-x64.tar.xz \
+    && tar -xf /tmp/nodejs.tar.xz -C /tmp/ \
+    && sudo cp -r /tmp/node-v${NODEJS_VER}-linux-x64/* /usr/local/ \
+    && sudo rm -rf /tmp/node-v${NODEJS_VER}-linux-x64 \
+    && sudo rm -f /tmp/nodejs.tar.xz 
 }
 
 nodejs
