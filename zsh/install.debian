@@ -20,4 +20,4 @@ sudo apt-get -qq update \
                                 ccrypt \
                                 ripgrep \
 && sudo chsh -s $(which zsh) $USER \
-&& source install.linux.x86_64
+&& source ./zsh/install.linux.x86_64
